@@ -1,0 +1,32 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <h2>You Have Successfully Voted For </h2>
+
+     
+         
+             
+   
+        {% for entry in borrowing_history %}
+         
+             {{ entry.book.title }}
+             {{ entry.book.slogan }} 
+             <br>
+             {{ entry.position}} 
+             
+         
+
+        <hr>
+        {% endfor %}
+        <form class="site-form" action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %} {{ form }} {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}"> {% endif %}
+            <br>
+            <input style="margin-top:1rem;"  class = "btn btn-primary w-100" type="submit" value="Finish">
+        </form>
+    
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

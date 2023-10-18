@@ -1,0 +1,32 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container" >
+    <h2>Your Votes</h2>
+
+{% if cart_items %}
+
+        {% for item in cart_items %}
+        {{ item.book.title }}
+       
+        {{ item.book.slogan }}
+        <br>
+        {{ item.book.position }}
+        <br>
+                <a href="{% url 'remove_from_cart' item.id %}"><button class="btn btn-outline-danger btn-sm" type="submit">Remove</button></a>
+            
+                <hr>
+        {% endfor %}
+   
+<a href="{% url 'borrow_books' %}"><button class="btn btn-primary btn-sm" type="submit">Submit</button></a>
+{% else %}
+<p>Your have not yet voted</p>
+{% endif %}
+
+<a href="{% url 'index' %}"><button class="btn btn-outline-primary btn-sm" type="submit">Vote For Other Positions</button></a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

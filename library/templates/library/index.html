@@ -1,0 +1,260 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <h1 style="margin-top: 1rem;">President</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "President" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }} </h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+                    
+                {% endfor %}
+    </div>
+<hr>
+    <h1 style="margin-top: 1rem;"> Vice President</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Vice President" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+                    
+                {% endfor %}
+    </div>
+    <hr>
+    <h1 style="margin-top: 1rem;">Secretary</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Secretary" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+       
+                    
+                {% endfor %}
+    </div>
+    <hr>
+    <h1 style="margin-top: 1rem;">Vice Secretary</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Vice Secretary" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+       
+                    
+                {% endfor %}
+    </div>
+    <hr>
+    <h1 style="margin-top: 1rem;">Treasurer</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Treasurer" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+       
+                    
+                {% endfor %}
+    </div>
+    <hr>
+    <h1 style="margin-top: 1rem;">Publicity</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Publicity" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+       
+                    
+                {% endfor %}
+    </div>
+    <hr>
+    <h1 style="margin-top: 1rem;">Sports</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Sports" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+       
+                    
+                {% endfor %}
+    </div>
+    <hr>
+    <h1 style="margin-top: 1rem;">Committee</h1>
+    <div class="row">
+        
+        {% for book in books %}
+        {% if book.position == "Executice Committee Member" %}
+        <div class="col-md-6">
+            
+                <div class="card" style="margin-bottom: 1rem;margin-top: 1rem;"><img src = {{ book.book_picture }} class="card-img-top w-100 d-block">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.title }} {{ book.slogan }}</h4>
+                        
+                        <p class="card-text">Running for: {{ book.position }}</p>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'add_to_cart' book.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Vote</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>
+            No Candidates
+        </p>
+       
+                    
+                {% endfor %}
+    </div>
+    <br><br><br>
+    <a href =  "{% url 'view_cart' %}" >
+        <button class ="btn btn-primary w-100 "> View Your Votes </button>
+    
+    </a> 
+</div>
+<br><br><br><br><br><br>
+   
+{% endblock %}

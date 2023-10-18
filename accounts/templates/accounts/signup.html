@@ -1,0 +1,58 @@
+{% extends "library/index.html" %}
+
+{% load static %}
+
+{% block body %}
+    <style>
+        .site-form input,
+        .site-form textarea {
+            display: block;
+            margin: 20px 0 0 0;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        
+        .site-form {
+            display: block;
+            margin: auto;
+            margin-top: -2.6rem;
+            padding: 20px;
+            border-radius: 4px;
+            background-color: White;
+        }
+    </style>
+    
+    <header class="pt-5" style="margin-top:-8rem;">
+        <div class="container pt-4 pt-xl-5">
+            <div class="row pt-5">
+                <div class="col-md-8 text-center text-md-start mx-auto">
+                    <div class="text-center">
+                        <center><img src="{% static 'images/unzalaw.jpg'%}" width="250rem"></center>
+
+                        <h1 class="display-4 fw-bold mb-5">UNZALAW Voting System&nbsp;</h1>
+                        <p class="fs-5 text-muted mb-5">"Every Vote Counts - Make Yours Heard!"</p>
+                        <form class="d-flex justify-content-center flex-wrap" method="post" data-bs-theme="light">
+                            {% csrf_token %}
+                            <div style = "padding: 1rem; display:block;" class="shadow-lg mb-3"><form class="site-form" action="{% url 'accounts:signup' %}" method="post">
+                            <p> We are committed to ensuring the privacy and security of your votes. We want you to know that your votes are confidential, and nobody will know who you voted for. To further protect your voting choices, we require you to create a password for your account.  </p>
+
+                                {{ form.as_p }} 
+                                <br>
+                                <input style="margin-top:1rem;"  class = "btn btn-primary" type="submit" value="Next">
+                            </form></div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-10 mx-auto">
+                    <div class="text-center position-relative"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+{% endblock %}
